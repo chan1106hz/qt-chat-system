@@ -1,0 +1,418 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Client1</class>
+ <widget class="QWidget" name="Client1">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>650</height>
+   </rect>
+  </property>
+  <property name="minimumSize">
+   <size>
+    <width>800</width>
+    <height>550</height>
+   </size>
+  </property>
+  <property name="windowTitle">
+   <string>Client1 - 网络客户端</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">/* 全局背景与字体 */
+QWidget#Client1 {
+    background: qlineargradient(x1:0, y1:0, x2:1, y2:1,
+                                stop:0 #eef2f7, stop:1 #e2e8f0);
+    font-family: &quot;Microsoft YaHei&quot;, &quot;Segoe UI&quot;, &quot;PingFang SC&quot;, Roboto, Arial;
+    font-size: 13px;
+}
+
+/* ----- 按钮通用样式 ----- */
+QPushButton {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #5c9ce6, stop:1 #4a86c8);
+    border: none;
+    border-radius: 6px;
+    color: white;
+    font-weight: bold;
+    padding: 8px 16px;
+    min-height: 20px;
+}
+QPushButton:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #6aacef, stop:1 #5c96e0);
+}
+QPushButton:pressed {
+    background: #3d73b3;
+}
+
+/* 断开连接按钮（独立配色） */
+QPushButton#pushButton_2 {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #e6895e, stop:1 #d9774a);
+}
+QPushButton#pushButton_2:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #f0996b, stop:1 #e58757);
+}
+QPushButton#pushButton_2:pressed {
+    background: #c2653a;
+}
+
+/* 发送按钮（绿色主题） */
+QPushButton#pushButton_3 {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #4caf50, stop:1 #43a047);
+    border-radius: 5px;
+    padding: 6px 20px;
+}
+QPushButton#pushButton_3:hover {
+    background: qlineargradient(x1:0, y1:0, x2:0, y2:1,
+                                stop:0 #5ecf62, stop:1 #55b955);
+}
+QPushButton#pushButton_3:pressed {
+    background: #2e7d32;
+}
+
+/* 输入框 + 文本编辑区 */
+QLineEdit, QTextEdit {
+    border: 1px solid #cfdde6;
+    border-radius: 6px;
+    background-color: #ffffff;
+    padding: 5px 8px;
+    selection-background-color: #5c9ce6;
+    font-size: 12px;
+}
+QLineEdit:focus, QTextEdit:focus {
+    border: 1px solid #5c9ce6;
+    outline: none;
+}
+QTextEdit {
+    padding: 6px;
+}
+
+/* QGroupBox 卡片样式 */
+QGroupBox {
+    border: 1px solid #cfdfeb;
+    border-radius: 12px;
+    margin-top: 12px;
+    background-color: rgba(255, 255, 255, 0.85);
+    font-weight: bold;
+}
+QGroupBox::title {
+    subcontrol-origin: margin;
+    left: 16px;
+    padding: 0 8px;
+    background-color: transparent;
+    color: #2c3e50;
+    font-size: 13px;
+    font-weight: 600;
+}
+
+/* 美化滚动条（适用于 QTextEdit） */
+QScrollBar:vertical {
+    width: 10px;
+    background: #f0f3f8;
+    border-radius: 5px;
+    margin: 0px;
+}
+QScrollBar::handle:vertical {
+    background: #b9c8e5;
+    border-radius: 5px;
+    min-height: 25px;
+}
+QScrollBar::handle:vertical:hover {
+    background: #8fb0d4;
+}
+QScrollBar::add-line:vertical, QScrollBar::sub-line:vertical {
+    height: 0px;
+}
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical {
+    background: none;
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="mainLayout">
+   <property name="spacing">
+    <number>18</number>
+   </property>
+   <property name="leftMargin">
+    <number>24</number>
+   </property>
+   <property name="topMargin">
+    <number>20</number>
+   </property>
+   <property name="rightMargin">
+    <number>24</number>
+   </property>
+   <property name="bottomMargin">
+    <number>20</number>
+   </property>
+   <item>
+    <widget class="QLabel" name="label_3">
+     <property name="styleSheet">
+      <string notr="true">font-weight: 500; color: #1e2f3e;</string>
+     </property>
+     <property name="text">
+      <string>用户名：</string>
+     </property>
+    </widget>
+   </item>
+   <item>
+    <widget class="QLineEdit" name="lineEdit_3"/>
+   </item>
+   <item>
+    <layout class="QFormLayout" name="connectionLayout">
+     <property name="labelAlignment">
+      <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+     </property>
+     <property name="formAlignment">
+      <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+     </property>
+     <property name="horizontalSpacing">
+      <number>15</number>
+     </property>
+     <property name="verticalSpacing">
+      <number>12</number>
+     </property>
+     <item row="0" column="0">
+      <widget class="QLabel" name="label">
+       <property name="styleSheet">
+        <string notr="true">font-weight: 500; color: #1e2f3e;</string>
+       </property>
+       <property name="text">
+        <string>IP 地址：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="0" column="1">
+      <widget class="QLineEdit" name="lineEdit">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="placeholderText">
+        <string>例如: 127.0.0.1</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="0">
+      <widget class="QLabel" name="label_2">
+       <property name="styleSheet">
+        <string notr="true">font-weight: 500; color: #1e2f3e;</string>
+       </property>
+       <property name="text">
+        <string>端 口：</string>
+       </property>
+      </widget>
+     </item>
+     <item row="1" column="1">
+      <widget class="QLineEdit" name="lineEdit_2">
+       <property name="minimumSize">
+        <size>
+         <width>200</width>
+         <height>28</height>
+        </size>
+       </property>
+       <property name="placeholderText">
+        <string>例如: 8888</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="buttonLayout">
+     <property name="spacing">
+      <number>30</number>
+     </property>
+     <item>
+      <spacer name="horizontalSpacerLeft">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="minimumSize">
+        <size>
+         <width>140</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>🔌 连接到服务器</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="minimumSize">
+        <size>
+         <width>140</width>
+         <height>36</height>
+        </size>
+       </property>
+       <property name="cursor">
+        <cursorShape>PointingHandCursor</cursorShape>
+       </property>
+       <property name="text">
+        <string>❌ 断开连接</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <spacer name="horizontalSpacerRight">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>40</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="dataAreaLayout">
+     <property name="spacing">
+      <number>20</number>
+     </property>
+     <item>
+      <widget class="QGroupBox" name="writeGroup">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>1</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="title">
+        <string>✏️ 写入区</string>
+       </property>
+       <layout class="QVBoxLayout" name="writeLayout">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>15</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QTextEdit" name="textEdit_2">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="placeholderText">
+           <string>在此输入要发送的消息...</string>
+          </property>
+         </widget>
+        </item>
+        <item>
+         <layout class="QHBoxLayout" name="sendLayout">
+          <item>
+           <spacer name="sendSpacer">
+            <property name="orientation">
+             <enum>Qt::Horizontal</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>40</width>
+              <height>20</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item>
+           <widget class="QPushButton" name="pushButton_3">
+            <property name="minimumSize">
+             <size>
+              <width>100</width>
+              <height>32</height>
+             </size>
+            </property>
+            <property name="cursor">
+             <cursorShape>PointingHandCursor</cursorShape>
+            </property>
+            <property name="text">
+             <string>📤 发送</string>
+            </property>
+           </widget>
+          </item>
+         </layout>
+        </item>
+       </layout>
+      </widget>
+     </item>
+     <item>
+      <widget class="QGroupBox" name="readGroup">
+       <property name="sizePolicy">
+        <sizepolicy hsizetype="Preferred" vsizetype="Expanding">
+         <horstretch>1</horstretch>
+         <verstretch>1</verstretch>
+        </sizepolicy>
+       </property>
+       <property name="title">
+        <string>📖 读取区</string>
+       </property>
+       <layout class="QVBoxLayout" name="readLayout">
+        <property name="leftMargin">
+         <number>10</number>
+        </property>
+        <property name="topMargin">
+         <number>15</number>
+        </property>
+        <property name="rightMargin">
+         <number>10</number>
+        </property>
+        <property name="bottomMargin">
+         <number>10</number>
+        </property>
+        <item>
+         <widget class="QTextEdit" name="textEdit">
+          <property name="sizePolicy">
+           <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+            <horstretch>0</horstretch>
+            <verstretch>0</verstretch>
+           </sizepolicy>
+          </property>
+          <property name="readOnly">
+           <bool>true</bool>
+          </property>
+          <property name="placeholderText">
+           <string>服务器消息会显示在这里...</string>
+          </property>
+         </widget>
+        </item>
+       </layout>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>

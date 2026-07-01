@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Serve1</class>
+ <widget class="QWidget" name="Serve1">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>800</width>
+    <height>600</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Server Dashboard</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">
+    /* 全局背景与字体 */
+    QWidget {
+        background-color: #f0f2f5;
+        font-family: &quot;Segoe UI&quot;, &quot;Microsoft YaHei&quot;, &quot;PingFang SC&quot;, sans-serif;
+    }
+
+    /* 标签通用样式 */
+    QLabel {
+        color: #2c3e50;
+        font-size: 14px;
+        font-weight: 600;
+    }
+
+    /* 输入框通用样式 */
+    QLineEdit {
+        background-color: #ffffff;
+        border: 1px solid #dcdfe6;
+        border-radius: 6px;
+        padding: 6px 12px;
+        font-size: 13px;
+        selection-background-color: #409eff;
+    }
+    QLineEdit:focus {
+        border-color: #409eff;
+        outline: none;
+    }
+
+    /* 文本编辑区通用样式 */
+    QTextEdit {
+        background-color: #ffffff;
+        border: 1px solid #e4e7ed;
+        border-radius: 8px;
+        padding: 8px 12px;
+        font-family: &quot;JetBrains Mono&quot;, &quot;Consolas&quot;, monospace;
+        font-size: 12px;
+        line-height: 1.5;
+        selection-background-color: #409eff;
+    }
+    QTextEdit:focus {
+        border-color: #409eff;
+    }
+
+    /* 按钮基本样式 */
+    QPushButton {
+        border: none;
+        border-radius: 6px;
+        padding: 6px 16px;
+        font-weight: 600;
+        font-size: 13px;
+        color: #ffffff;
+        cursor: pointer;
+    }
+    QPushButton:hover {
+        opacity: 0.9;
+    }
+    QPushButton:pressed {
+        padding-top: 7px;
+        padding-bottom: 5px;
+    }
+   </string>
+  </property>
+
+  <!-- PORT 标签 -->
+  <widget class="QLabel" name="label">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>40</y>
+     <width>60</width>
+     <height>30</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">color: #34495e; font-weight: bold; font-size: 14px;</string>
+   </property>
+   <property name="text">
+    <string>PORT</string>
+   </property>
+   <property name="alignment">
+    <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+   </property>
+  </widget>
+
+  <!-- 端口输入框 -->
+  <widget class="QLineEdit" name="lineEdit">
+   <property name="geometry">
+    <rect>
+     <x>110</x>
+     <y>38</y>
+     <width>160</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="placeholderText">
+    <string>例如: 8080</string>
+   </property>
+  </widget>
+
+  <!-- 启动服务器按钮 -->
+  <widget class="QPushButton" name="pushButton">
+   <property name="geometry">
+    <rect>
+     <x>300</x>
+     <y>38</y>
+     <width>120</width>
+     <height>32</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #409eff;</string>
+   </property>
+   <property name="text">
+    <string>启动服务器</string>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+  </widget>
+
+  <!-- 消息日志显示区域 -->
+  <widget class="QTextEdit" name="textEdit">
+   <property name="geometry">
+    <rect>
+     <x>40</x>
+     <y>100</y>
+     <width>720</width>
+     <height>400</height>
+    </rect>
+   </property>
+   <property name="readOnly">
+    <bool>false</bool>
+   </property>
+   <property name="placeholderText">
+    <string>服务器日志将显示在此处...</string>
+   </property>
+  </widget>
+
+  <!-- 发送按钮 -->
+  <widget class="QPushButton" name="pushButton_2">
+   <property name="geometry">
+    <rect>
+     <x>680</x>
+     <y>520</y>
+     <width>100</width>
+     <height>34</height>
+    </rect>
+   </property>
+   <property name="styleSheet">
+    <string notr="true">background-color: #67c23a; font-weight: bold;</string>
+   </property>
+   <property name="text">
+    <string>发送</string>
+   </property>
+   <property name="cursor">
+    <cursorShape>PointingHandCursor</cursorShape>
+   </property>
+  </widget>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
